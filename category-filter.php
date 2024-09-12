@@ -28,3 +28,26 @@ function ek_category_filter_load_widget() {
 }
 
 add_action( 'widgets_init', 'ek_category_filter_load_widget' );
+
+function ek_category_assets_js() {
+    wp_enqueue_script(
+        'ek-category-accordion-filter',
+        plugin_dir_url( __FILE__ ) . 'assets/js/woocommerce-category-accordion.js',
+        ['jquery'],
+        '1.0',
+        true
+    );
+}
+
+add_action( 'wp_enqueue_scripts', 'ek_category_assets_js' );
+
+function ek_category_assets_css() {
+    wp_enqueue_style(
+        'ek-category-accordion-filter',
+        plugin_dir_url( __FILE__ ) . 'assets/css/woocommerce-category-accordion.css',
+        [],
+        '1.0'
+    );
+}
+
+add_action( 'wp_enqueue_scripts', 'ek_category_assets_css' );
